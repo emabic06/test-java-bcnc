@@ -15,12 +15,12 @@ public class PriceResponseDTO {
     public PriceResponseDTO() {
     }
 
-    public PriceResponseDTO(int productId, Long brandId,  int priceList,  LocalDateTime endDate, LocalDateTime startDate, double price ) {
+    public PriceResponseDTO(int productId, Long brandId, int priceList,  LocalDateTime startDate, LocalDateTime endDate, double price ) {
         this.productId = productId;
         this.brandId = brandId;
         this.priceList = priceList;
-        this.endDate = endDate;
         this.startDate = startDate;
+        this.endDate = endDate;
         this.price = price;
 
     }
