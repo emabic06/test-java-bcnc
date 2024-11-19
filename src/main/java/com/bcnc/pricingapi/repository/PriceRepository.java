@@ -11,7 +11,7 @@ import java.util.List;
     @Repository
     public interface PriceRepository extends JpaRepository<PriceEntity, Long> {
 
-        @Query("SELECT p FROM PriceEntity p WHERE p.productId = :productId AND p.brandId = :brandId AND p.startDate <= :date AND p.endDate >= :date")
+        @Query("SELECT p FROM PriceEntity p WHERE p.productId = :productId AND p.brandId = :brandId AND :date BETWEEN p.startDate AND p.endDate")
         List<PriceEntity> findByProductIdAndBrandIdAndApplicationDate(
                 @Param("productId") int productId,
                 @Param("brandId") Long brandId,

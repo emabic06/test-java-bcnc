@@ -2,12 +2,12 @@ package com.bcnc.pricingapi.exceptions;
 
 import org.springframework.http.HttpStatus;
 
-public class DatabaseNotFoundException extends RuntimeException {
+public class DataNotFoundException extends RuntimeException {
 
     private final HttpStatus status;
     private final String type;
 
-    public DatabaseNotFoundException(HttpStatus status, String type, String message) {
+    public DataNotFoundException(HttpStatus status, String type, String message) {
         super(message);
         this.status = status;
         this.type = type;
