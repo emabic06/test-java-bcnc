@@ -1,4 +1,4 @@
-package com.bcnc.pricingapi.infrastructure.database;
+package com.bcnc.pricingapi.infrastructure;
 
 import com.bcnc.pricingapi.entity.PriceEntity;
 import org.slf4j.Logger;

@@ -4,6 +4,7 @@ import com.bcnc.pricingapi.dto.PriceResponseDTO;
 import com.bcnc.pricingapi.entity.PriceEntity;
 import com.bcnc.pricingapi.repository.PriceRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
@@ -19,11 +20,13 @@ public class PriceServiceImpl implements PriceService  {
         PriceResponseDTO dtoEmpty = new PriceResponseDTO();
 
         //Lógica de negocio
-        return priceRepository.findByProductIdAndBrandIdAndApplicationDate(productId, brandId, applicationDate ).stream()
+        PriceResponseDTO dto = priceRepository.findByProductIdAndBrandIdAndApplicationDate(productId, brandId, applicationDate ).stream()
                 .max(Comparator.comparing(PriceEntity::getPriority))
                 .map(p -> new PriceResponseDTO(p.getProductId(),p.getBrandId(), p.getPriceList(),
                         p.getStartDate(),  p.getEndDate(), p.getPrice()))
                 .orElse(dtoEmpty);
+
+        return dto;
     }
 }
 
